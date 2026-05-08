@@ -1,484 +1,805 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YM NXT PHASE Drywall | Kitchener-Waterloo, Cambridge & GTA</title>
-  <meta name="description" content="Professional drywall installation, taping, popcorn removal, California ceilings, T-bar drop ceilings and more. Serving K-W, Cambridge and the Greater Toronto Area for 17+ years."/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --black:#0a0a0a;--dark:#111214;--panel:#161819;--steel:#1e2124;
-      --accent:#e8a020;--accent2:#f5c04a;--light:#d4cfc8;--white:#f0ede8;--muted:#6b7280;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YM NXT PHASE Drywall — From Board to Primer. Done Right.</title>
+<meta name="description" content="Expert drywall, taping and finishing with 17 years of experience. Free primer included with every booking. Clean, professional, reliable drywall contractor." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --ink-2: #151413;
+    --bone: #f4efe6;
+    --chalk: #e8e1d3;
+    --dust: #a89f8d;
+    --mud: #6b5d48;
+    --accent: #d94a1f;
+    --line: rgba(244, 239, 230, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--bone);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Drywall-dust grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  /* ═══ NAV ═══ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  nav .logo span { color: var(--accent); }
+  nav .call-btn {
+    background: var(--bone);
+    color: var(--ink);
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  nav .call-btn:hover, nav .call-btn:active { background: var(--accent); color: var(--bone); transform: scale(1.04); }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh;
+    padding: 7rem 1.5rem 3rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--dust);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.9s ease-out 0.15s backwards;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--dust);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 14vw, 8rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease-out 0.3s backwards;
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero h1 .heavy {
+    font-weight: 900;
+    display: block;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-sub {
+    max-width: 480px;
+    font-size: 1.05rem;
+    color: var(--chalk);
+    line-height: 1.55;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1s ease-out 0.5s backwards;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    animation: fadeUp 1s ease-out 0.7s backwards;
+  }
+  .btn-primary, .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bone);
+  }
+  .btn-primary:hover, .btn-primary:active { background: var(--bone); color: var(--ink); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--bone);
+    border-color: var(--line);
+  }
+  .btn-ghost:hover, .btn-ghost:active { border-color: var(--bone); background: rgba(244,239,230,0.05); }
+  .btn-arrow { font-size: 1rem; }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    animation: fadeUp 1s ease-out 0.9s backwards;
+  }
+  .hero-meta-item .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .hero-meta-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--dust);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══ SECTION FRAME ═══ */
+  section { position: relative; z-index: 2; padding: 5rem 1.5rem; }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--dust);
+    margin-bottom: 2rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--dust);
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    max-width: 900px;
+  }
+  .section-title em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ═══ SERVICES ═══ */
+  #services { background: var(--ink-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .service {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .service-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    padding-top: 0.35rem;
+    letter-spacing: 0.05em;
+  }
+  .service h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .service p {
+    color: var(--chalk);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* ═══ DIFFERENCE (pull quote style) ═══ */
+  #difference { padding: 6rem 1.5rem; }
+  .pull-quote {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    margin-bottom: 3rem;
+    color: var(--bone);
+  }
+  .pull-quote .accent { color: var(--accent); }
+
+  .differences {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .diff-card {
+    padding: 2rem;
+    border: 1px solid var(--line);
+    background: var(--ink-2);
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .diff-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .diff-card .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+  .diff-card h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .diff-card p {
+    color: var(--chalk);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ═══ BANNER ═══ */
+  .banner {
+    background: var(--accent);
+    color: var(--bone);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .banner-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    line-height: 1.2;
+    max-width: 700px;
+    margin: 0 auto;
+    letter-spacing: -0.01em;
+  }
+  .banner-text strong {
+    font-weight: 900;
+    font-style: italic;
+    font-family: 'Instrument Serif', serif;
+  }
+
+  /* ═══ CONTACT ═══ */
+  #contact {
+    background: var(--ink);
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--bone);
+    transition: all 0.25s ease;
+    background: var(--ink-2);
+  }
+  .contact-method:hover, .contact-method:active {
+    border-color: var(--accent);
+    transform: translateX(6px);
+  }
+  .contact-method .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contact-method .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--dust);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .contact-method .value {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+  }
+  .contact-method .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-method .arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--dust);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .contact-method:hover .arrow { color: var(--accent); transform: translateX(4px); }
+
+  /* Contact form */
+  .quote-form {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    padding: 2rem 1.5rem;
+  }
+  .quote-form h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .quote-form h3 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .quote-form .field {
+    margin-bottom: 1rem;
+  }
+  .quote-form label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--dust);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .quote-form input, .quote-form select, .quote-form textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    color: var(--bone);
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    padding: 0.6rem 0;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus {
+    border-bottom-color: var(--accent);
+  }
+  .quote-form textarea { resize: vertical; min-height: 80px; font-family: 'Fraunces', serif; }
+  .quote-form select option { background: var(--ink-2); color: var(--bone); }
+  .quote-form button {
+    width: 100%;
+    padding: 1.1rem;
+    margin-top: 1rem;
+    background: var(--accent);
+    color: var(--bone);
+    border: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .quote-form button:hover, .quote-form button:active { background: var(--bone); color: var(--ink); }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    background: var(--ink);
+    padding: 2.5rem 1.5rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  footer .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.01em;
+  }
+  footer .brand span { color: var(--accent); }
+  footer .meta {
+    color: var(--dust);
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  footer .meta a { color: var(--chalk); text-decoration: none; }
+
+  /* ═══ TABLET & DESKTOP ═══ */
+  @media (min-width: 640px) {
+    nav, .hero, section { padding-left: 3rem; padding-right: 3rem; }
+    .banner, footer { padding-left: 3rem; padding-right: 3rem; }
+    .differences { grid-template-columns: repeat(2, 1fr); }
+    .contact-methods { grid-template-columns: repeat(2, 1fr); }
+    .service { grid-template-columns: 60px 1fr; gap: 1.5rem; }
+    .service-num { font-size: 0.75rem; }
+    .service h3 { font-size: 1.5rem; }
+  }
+
+  @media (min-width: 960px) {
+    nav, .hero, section { padding-left: 5rem; padding-right: 5rem; }
+    .banner, footer { padding-left: 5rem; padding-right: 5rem; }
+    .hero { padding-top: 9rem; }
+    .contact-methods { grid-template-columns: repeat(2, 1fr); }
+    .quote-form { padding: 3rem; }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
     }
-    html{scroll-behavior:smooth}
-    body{background:var(--black);color:var(--light);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4}
+    .services-grid { grid-template-columns: 1fr 1fr; column-gap: 4rem; }
+    .services-grid .service:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+  }
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(10,10,10,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(232,160,32,0.15)}
-    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:0.12em;color:var(--accent)}
-    .nav-logo span{color:var(--white)}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{color:var(--light);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.2s}
-    .nav-links a:hover{color:var(--accent)}
-    .nav-cta{background:var(--accent);color:var(--black)!important;padding:0.45rem 1.1rem!important;font-weight:700!important}
-    .nav-cta:hover{background:var(--accent2)!important}
+  @media (min-width: 1200px) {
+    .hero { padding-left: 8rem; padding-right: 8rem; }
+  }
 
-    /* HERO */
-    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-    .hero-left{display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 5rem;position:relative;z-index:2}
-    .hero-tag{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:0.32rem 0.75rem;margin-bottom:1.8rem;width:fit-content;animation:fadeUp 0.8s ease both}
-    .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,7vw,7.5rem);line-height:0.92;letter-spacing:0.04em;color:var(--white);animation:fadeUp 0.8s 0.15s ease both}
-    .hero-title .highlight{color:var(--accent);display:block}
-    .hero-sub{margin-top:1.8rem;font-size:1rem;line-height:1.75;max-width:420px;color:var(--muted);animation:fadeUp 0.8s 0.3s ease both}
-    .hero-actions{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap;animation:fadeUp 0.8s 0.45s ease both}
-    .hero-right{position:relative;overflow:hidden}
-    .hero-right img{width:100%;height:100%;object-fit:cover;display:block;opacity:0.65}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,var(--black) 0%,transparent 35%),linear-gradient(180deg,transparent 55%,var(--black) 100%);z-index:1;pointer-events:none}
-
-    /* BUTTONS */
-    .btn-primary{background:var(--accent);color:var(--black);padding:0.9rem 2.2rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.83rem;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.15s}
-    .btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
-    .btn-ghost{border:1px solid rgba(232,160,32,0.4);color:var(--accent);padding:0.9rem 2.2rem;font-family:'Barlow',sans-serif;font-weight:600;font-size:0.83rem;letter-spacing:0.12em;text-transform:uppercase;background:transparent;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s}
-    .btn-ghost:hover{background:rgba(232,160,32,0.08);transform:translateY(-2px)}
-    .btn-dark{background:var(--black);color:var(--accent);padding:1rem 2.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.83rem;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;transition:transform 0.15s}
-    .btn-dark:hover{transform:translateY(-2px)}
-
-    /* STATS */
-    .stats-bar{background:var(--panel);border-top:1px solid rgba(232,160,32,0.12);border-bottom:1px solid rgba(232,160,32,0.12);padding:2rem 3rem;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem}
-    .stat{text-align:center}
-    .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--accent);letter-spacing:0.05em;line-height:1}
-    .stat-label{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem}
-
-    /* SECTIONS */
-    section{padding:6rem 3rem}
-    .section-label{font-size:0.68rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem}
-    .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4rem);color:var(--white);letter-spacing:0.04em;line-height:1;margin-bottom:1.4rem}
-    .section-body{font-size:1rem;line-height:1.8;color:var(--muted);max-width:520px}
-
-    /* SERVICES */
-    #services{background:var(--dark)}
-    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:4rem;background:rgba(232,160,32,0.07)}
-    .service-card{background:var(--panel);padding:0;position:relative;overflow:hidden;transition:background 0.3s;display:flex;flex-direction:column}
-    .service-card:hover{background:var(--steel)}
-    .service-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease}
-    .service-card:hover::after{transform:scaleX(1)}
-    .service-card-img{width:100%;height:155px;object-fit:cover;display:block;opacity:0.78;transition:opacity 0.3s,transform 0.45s}
-    .service-card:hover .service-card-img{opacity:1;transform:scale(1.05)}
-    .service-card-body{padding:1.3rem 1.5rem 1.7rem;flex:1}
-    .service-icon{font-size:1.8rem;margin-bottom:0.8rem}
-    .service-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.55rem}
-    .service-desc{font-size:0.83rem;line-height:1.65;color:var(--muted)}
-
-    /* WHY US */
-    #why{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;background:var(--black)}
-    .why-visual{position:relative;height:480px}
-    .why-block{position:absolute}
-    .why-block-main{width:78%;height:78%;top:0;left:0;overflow:hidden;border:1px solid rgba(232,160,32,0.1)}
-    .why-block-main img{width:100%;height:100%;object-fit:cover;opacity:0.72;display:block}
-    .why-block-main::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,10,0.88) 100%)}
-    .why-quote{position:absolute;bottom:1.8rem;left:2rem;right:2rem;font-family:'Bebas Neue',sans-serif;font-size:1.85rem;color:var(--white);letter-spacing:0.05em;line-height:1.1;z-index:1}
-    .why-block-accent{width:42%;height:42%;bottom:0;right:0;background:var(--accent);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:1.5rem}
-    .why-block-accent .num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--black);line-height:1}
-    .why-block-accent .lbl{font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.6)}
-    .feature-list{margin-top:2rem;display:flex;flex-direction:column;gap:1.1rem}
-    .feature-item{display:flex;align-items:flex-start;gap:1rem}
-    .feature-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:0.52rem}
-    .feature-text{font-size:0.93rem;line-height:1.65;color:var(--light)}
-    .feature-text strong{color:var(--white);font-weight:600}
-
-    /* GALLERY */
-    #gallery{background:var(--dark)}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:240px 240px;gap:6px;margin-top:3rem}
-    .gallery-item{position:relative;overflow:hidden;background:var(--steel)}
-    .gallery-item.tall{grid-row:span 2}
-    .gallery-item.wide{grid-column:span 2}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s,opacity 0.3s;opacity:0.82}
-    .gallery-item:hover img{transform:scale(1.06);opacity:1}
-    .gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1.1rem;background:linear-gradient(transparent,rgba(0,0,0,0.78));font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);transform:translateY(100%);transition:transform 0.3s}
-    .gallery-item:hover .gallery-caption{transform:translateY(0)}
-
-    /* TESTIMONIALS */
-    #testimonials{background:var(--black)}
-    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
-    .testimonial-card{background:var(--panel);border:1px solid rgba(232,160,32,0.1);padding:2rem;position:relative;transition:border-color 0.3s}
-    .testimonial-card:hover{border-color:rgba(232,160,32,0.35)}
-    .testimonial-card::before{content:'\201C';font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--accent);opacity:0.2;position:absolute;top:0.3rem;left:1.2rem;line-height:1;pointer-events:none}
-    .testimonial-stars{color:var(--accent);font-size:0.88rem;margin-bottom:0.5rem;letter-spacing:0.1em}
-    .testimonial-text{font-size:0.93rem;line-height:1.75;color:var(--light);margin-bottom:1.4rem;padding-top:1.4rem}
-    .testimonial-author{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--white)}
-    .testimonial-location{font-size:0.77rem;color:var(--muted);margin-top:0.2rem}
-
-    /* PROCESS */
-    #process{background:var(--panel);text-align:center}
-    #process .section-label,#process .section-title{text-align:center}
-    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:4rem;position:relative}
-    .process-steps::before{content:'';position:absolute;top:2.2rem;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0.3}
-    .step{padding:0 1.5rem;text-align:center}
-    .step-num{width:4.5rem;height:4.5rem;border:1px solid rgba(232,160,32,0.3);background:var(--steel);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--accent);margin:0 auto 1.5rem;position:relative;z-index:1;transition:background 0.3s,border-color 0.3s}
-    .step:hover .step-num{background:var(--accent);color:var(--black);border-color:var(--accent)}
-    .step-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);margin-bottom:0.6rem}
-    .step-desc{font-size:0.83rem;color:var(--muted);line-height:1.6}
-
-    /* CTA BAND */
-    .cta-band{background:var(--accent);padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-    .cta-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--black);letter-spacing:0.04em;max-width:600px;line-height:1.1}
-
-    /* SERVICE AREA */
-    #area{background:var(--dark)}
-    .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
-    .area-map{width:100%;height:400px;border:2px solid rgba(232,160,32,0.2);filter:grayscale(85%) contrast(1.1);display:block}
-    .area-list{display:flex;flex-direction:column;gap:1.1rem}
-    .area-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.4rem;background:var(--panel);border-left:3px solid var(--accent)}
-    .area-item-icon{font-size:1.3rem;flex-shrink:0}
-    .area-item-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--white)}
-    .area-item-detail{font-size:0.8rem;color:var(--muted);margin-top:0.15rem}
-
-    /* CONTACT */
-    #contact{background:var(--panel)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3rem}
-    .contact-info{display:flex;flex-direction:column;gap:1.7rem}
-    .contact-item{display:flex;align-items:flex-start;gap:1.1rem}
-    .contact-icon{font-size:1.35rem;margin-top:0.1rem}
-    .contact-detail-label{font-size:0.67rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.25rem}
-    .contact-detail-val{font-size:0.98rem;color:var(--light)}
-    .contact-detail-val a{color:inherit;text-decoration:none}
-    .contact-detail-val a:hover{color:var(--accent)}
-    .contact-form{display:flex;flex-direction:column;gap:1rem}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .form-field{display:flex;flex-direction:column;gap:0.32rem}
-    .form-field label{font-size:0.67rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
-    .form-field input,.form-field select,.form-field textarea{background:var(--steel);border:1px solid rgba(255,255,255,0.07);color:var(--light);padding:0.78rem 1rem;font-family:'Barlow',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;resize:none;-webkit-appearance:none;border-radius:0}
-    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--accent)}
-    .form-field textarea{height:118px}
-    .form-field select option{background:var(--steel)}
-    .form-success{display:none;background:rgba(232,160,32,0.1);border:1px solid rgba(232,160,32,0.4);color:var(--accent);padding:1rem 1.4rem;font-size:0.88rem;text-align:center}
-
-    /* FOOTER */
-    footer{background:var(--black);border-top:1px solid rgba(232,160,32,0.1);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.12em;color:var(--accent)}
-    .footer-logo span{color:var(--white)}
-    .footer-copy{font-size:0.75rem;color:var(--muted)}
-    .footer-links{display:flex;gap:2rem;list-style:none}
-    .footer-links a{font-size:0.75rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
-    .footer-links a:hover{color:var(--accent)}
-
-    /* WHATSAPP FLOAT */
-    .whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:300;background:#25d366;color:#fff;width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.45);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;animation:pulse-wa 2.5s infinite}
-    .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.65)}
-    .whatsapp-float svg{width:1.75rem;height:1.75rem;fill:#fff}
-    @keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45)}50%{box-shadow:0 4px 34px rgba(37,211,102,0.78)}}
-
-    /* ANIMATIONS */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-    .reveal.visible{opacity:1;transform:none}
-
-    /* MOBILE */
-    @media(max-width:900px){
-      nav{padding:1rem 1.5rem}
-      .nav-links{display:none}
-      .hero{grid-template-columns:1fr}
-      .hero-right{display:none}
-      .hero-left{padding:7rem 1.5rem 4rem}
-      section{padding:4rem 1.5rem}
-      .services-grid{grid-template-columns:1fr 1fr}
-      #why{grid-template-columns:1fr}
-      .why-visual{height:300px}
-      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-      .gallery-item.tall,.gallery-item.wide{grid-row:span 1;grid-column:span 1}
-      .gallery-item{height:195px}
-      .testimonials-grid{grid-template-columns:1fr}
-      .process-steps{grid-template-columns:1fr 1fr;gap:2rem}
-      .process-steps::before{display:none}
-      .cta-band{flex-direction:column;text-align:center}
-      .area-grid{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-      .form-row{grid-template-columns:1fr}
-      footer{flex-direction:column;align-items:flex-start}
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/15195033661" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- NAV -->
+<!-- ═══ NAV ═══ -->
 <nav>
-  <div class="nav-logo">YM <span>NXT PHASE</span></div>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#area">Service Area</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
-  </ul>
+  <div class="logo">YM <span>/</span> NXT PHASE</div>
+  <a href="tel:5195033661" class="call-btn">Call Now</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" style="padding:0;">
-  <div class="hero-left">
-    <span class="hero-tag">Full-Service Drywall — Framing to Painting</span>
-    <h1 class="hero-title">YM NXT<br><span class="highlight">PHASE</span><br>DRYWALL</h1>
-    <p class="hero-sub">17 years of expert drywall installation, taping, popcorn removal, California ceilings, T-bar systems and more — serving Kitchener-Waterloo, Cambridge, and the Greater Toronto Area.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Get a Free Quote</a>
-      <a href="https://wa.me/15195033661" target="_blank" class="btn-ghost">💬 WhatsApp Us</a>
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div>
+    <div class="hero-tag mono">Drywall &middot; Taping &middot; Finishing</div>
+    <h1>
+      From board<br>
+      <em>to primer.</em><br>
+      <span class="heavy">Done right.</span>
+    </h1>
+    <p class="hero-sub">
+      Seventeen years perfecting walls. Sharp corners, smooth joints, and a
+      free coat of primer on every booking — because raw mud isn't finished work.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">Get a Free Quote <span class="btn-arrow">→</span></a>
+      <a href="tel:5195033661" class="btn-ghost">519&middot;503&middot;3661</a>
     </div>
   </div>
-  <div class="hero-right">
-    <img src="img3.jpg" alt="Professional drywall framing"/>
-    <div class="hero-overlay"></div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="num">17<em style="font-style:normal; color:var(--accent);">+</em></span>
+      <span class="label">Years Experience</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="num">100<em style="font-style:normal; color:var(--accent);">%</em></span>
+      <span class="label">Paint-Ready</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="num">Free</span>
+      <span class="label">Primer Included</span>
+    </div>
   </div>
-</section>
+</header>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat"><div class="stat-num">17+</div><div class="stat-label">Years Experience</div></div>
-  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Projects Completed</div></div>
-  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Licensed & Insured</div></div>
-  <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Client Satisfaction</div></div>
-</div>
-
-<!-- SERVICES -->
+<!-- ═══ SERVICES ═══ -->
 <section id="services">
-  <div class="section-label reveal">What We Do</div>
-  <h2 class="section-title reveal">Our Services</h2>
+  <div class="section-label mono">What we do</div>
+  <h2 class="section-title">
+    Full-scope drywall, <em>finished to paint-ready.</em>
+  </h2>
+
   <div class="services-grid">
-    <div class="service-card reveal"><img src="img3.jpg" alt="Framing" class="service-card-img"/><div class="service-card-body"><div class="service-icon">📐</div><div class="service-name">Steel & Wood Framing</div><p class="service-desc">Interior wall and ceiling framing using wood or metal studs. Precise, code-compliant layouts for new builds, additions, and basement finishes.</p></div></div>
-    <div class="service-card reveal"><img src="img1.jpg" alt="Drywall Installation" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🏗️</div><div class="service-name">Drywall Installation</div><p class="service-desc">Full drywall hanging for new construction and renovations — walls, ceilings, bulkheads, and soffits. Residential and commercial, done right.</p></div></div>
-    <div class="service-card reveal"><img src="img2.jpg" alt="Taping and Mudding" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🎨</div><div class="service-name">Taping & Mudding</div><p class="service-desc">Expert joint taping, bedding, and finishing coats. Seamless, level-5 smooth walls and ceilings ready for paint — every time.</p></div></div>
-    <div class="service-card reveal"><img src="img2.jpg" alt="Patch Work" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🔧</div><div class="service-name">Patch Work & Repairs</div><p class="service-desc">Holes, cracks, water damage, and impact repairs fixed to perfection. We match existing textures so patches are completely invisible.</p></div></div>
-    <div class="service-card reveal"><img src="img6.jpg" alt="Drop Ceiling T-Bar" class="service-card-img"/><div class="service-card-body"><div class="service-icon">⬛</div><div class="service-name">Drop Ceilings & T-Bar</div><p class="service-desc">Suspended T-bar grid ceiling systems for commercial and residential spaces. Clean lines, acoustic tiles, and concealed mechanicals.</p></div></div>
-    <div class="service-card reveal"><img src="img5.jpg" alt="Popcorn Removal" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🌀</div><div class="service-name">Popcorn Removal</div><p class="service-desc">Remove outdated acoustic popcorn ceilings cleanly and efficiently, leaving a smooth modern surface ready for painting or new texture.</p></div></div>
-    <div class="service-card reveal"><img src="img6.jpg" alt="California Ceilings" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🏛️</div><div class="service-name">California Ceilings</div><p class="service-desc">Application and removal of California skip-trowel ceiling texture. Sprayed or hand-applied for a beautiful, consistent finish.</p></div></div>
-    <div class="service-card reveal"><img src="img1.jpg" alt="Texture and Spray" class="service-card-img"/><div class="service-card-body"><div class="service-icon">✨</div><div class="service-name">Texture & Spray Finishes</div><p class="service-desc">Smooth, orange peel, knockdown, skip trowel, and custom spray textures — every finish matched perfectly to your style.</p></div></div>
-    <div class="service-card reveal"><img src="img4.jpg" alt="Insulation" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🧱</div><div class="service-name">Insulation Installation</div><p class="service-desc">Batt and rigid insulation in wall and ceiling cavities before drywall. Improve energy efficiency and soundproofing throughout your home.</p></div></div>
-    <div class="service-card reveal"><img src="img4.jpg" alt="Soundproofing" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🔇</div><div class="service-name">Soundproofing</div><p class="service-desc">Resilient channels, acoustic insulation, and double-layer drywall for superior sound control — home theatres, offices, and multi-family units.</p></div></div>
-    <div class="service-card reveal"><img src="img3.jpg" alt="Bulkheads Soffits" class="service-card-img"/><div class="service-card-body"><div class="service-icon">📦</div><div class="service-name">Bulkheads & Soffits</div><p class="service-desc">Custom bulkheads and soffits to conceal ductwork, pipes, and beams — finished seamlessly into your walls and ceilings.</p></div></div>
-    <div class="service-card reveal"><img src="img5.jpg" alt="Interior Painting" class="service-card-img"/><div class="service-card-body"><div class="service-icon">🖌️</div><div class="service-name">Interior Painting</div><p class="service-desc">From primer to final colour — walls, ceilings, and trim painted to a professional standard. The perfect finishing touch.</p></div></div>
+    <article class="service">
+      <div class="service-num">01</div>
+      <div>
+        <h3>Full Space Drywalling</h3>
+        <p>Hanging, taping, and finishing for basements, additions, or new builds — every step handled in-house.</p>
+      </div>
+    </article>
+    <article class="service">
+      <div class="service-num">02</div>
+      <div>
+        <h3>Ceiling Modernization</h3>
+        <p>Expert removal of outdated popcorn and California ceilings for a clean, modern finish.</p>
+      </div>
+    </article>
+    <article class="service">
+      <div class="service-num">03</div>
+      <div>
+        <h3>Precision Patch Work</h3>
+        <p>Seamless repairs for water damage, cracks, and holes. Invisible once it's painted.</p>
+      </div>
+    </article>
+    <article class="service">
+      <div class="service-num">04</div>
+      <div>
+        <h3>Master Taping</h3>
+        <p>Sharp corners, smooth joints, zero shortcuts. Every wall walks out 100% ready for paint.</p>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- WHY US -->
-<section id="why">
-  <div class="why-visual reveal">
-    <div class="why-block why-block-main">
-      <img src="img1.jpg" alt="YM NXT PHASE work"/>
-      <div class="why-quote">BUILT ON PRECISION.<br>FINISHED TO PERFECTION.</div>
-    </div>
-    <div class="why-block why-block-accent">
-      <div class="num">NXT</div>
-      <div class="lbl">Phase</div>
-    </div>
-  </div>
-  <div class="reveal">
-    <div class="section-label">Why Choose Us</div>
-    <h2 class="section-title">Craftsmanship You<br>Can Count On</h2>
-    <p class="section-body">At YM NXT PHASE Drywall, Yainiel Montero brings 17 years of professional skill and old-school work ethic to every job. No shortcuts — just clean walls, straight lines, and satisfied clients across K-W, Cambridge, and the GTA.</p>
-    <div class="feature-list">
-      <div class="feature-item"><div class="feature-dot"></div><div class="feature-text"><strong>17 Years of Experience</strong> — Deep hands-on expertise across residential and commercial drywall projects of all sizes.</div></div>
-      <div class="feature-item"><div class="feature-dot"></div><div class="feature-text"><strong>On-Time, Every Time</strong> — We respect your schedule and deliver on deadline, keeping your project moving forward.</div></div>
-      <div class="feature-item"><div class="feature-dot"></div><div class="feature-text"><strong>Competitive Pricing</strong> — Fair, transparent estimates with no hidden costs. Quality work that fits your budget.</div></div>
-      <div class="feature-item"><div class="feature-dot"></div><div class="feature-text"><strong>Fully Licensed & Insured</strong> — You're protected on every job. Full liability and workers' comp coverage.</div></div>
-    </div>
-  </div>
-</section>
+<!-- ═══ DIFFERENCE ═══ -->
+<section id="difference">
+  <div class="section-label mono">The Difference</div>
+  <p class="pull-quote">
+    Why settle for just a taper when you can hire a pro who handles <span class="accent">every step</span> — and leaves your house cleaner than he found it?
+  </p>
 
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="section-label reveal">Our Work</div>
-  <h2 class="section-title reveal">Recent Projects</h2>
-  <div class="gallery-grid reveal">
-    <div class="gallery-item tall"><img src="img3.jpg" alt="Wood Framing"/><div class="gallery-caption">Wood Framing</div></div>
-    <div class="gallery-item"><img src="img1.jpg" alt="Drywall Installation"/><div class="gallery-caption">Drywall Installation</div></div>
-    <div class="gallery-item"><img src="img2.jpg" alt="Taping & Mudding"/><div class="gallery-caption">Taping & Mudding</div></div>
-    <div class="gallery-item wide"><img src="img6.jpg" alt="T-Bar Drop Ceiling"/><div class="gallery-caption">T-Bar Drop Ceiling</div></div>
-    <div class="gallery-item"><img src="img4.jpg" alt="Insulation"/><div class="gallery-caption">Insulation</div></div>
-    <div class="gallery-item"><img src="img5.jpg" alt="Interior Painting"/><div class="gallery-caption">Interior Painting</div></div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="section-label reveal">Client Reviews</div>
-  <h2 class="section-title reveal">What Our Clients Say</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">Yainiel did an incredible job on our basement renovation. The taping and mudding was flawless — you can't find a single seam. Super professional and finished right on schedule.</p>
-      <div class="testimonial-author">Michael T.</div>
-      <div class="testimonial-location">Kitchener, ON</div>
+  <div class="differences">
+    <div class="diff-card">
+      <div class="icon-circle">✓</div>
+      <h4>Free Primer Application</h4>
+      <p>Most tapers leave you with raw mud. Every booking includes a free coat of primer, so your walls are sealed and ready for color at no extra cost.</p>
     </div>
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">We had popcorn ceilings removed throughout the entire house and the results were amazing. Clean work, no mess left behind, and the smooth finish looks brand new. Highly recommend!</p>
-      <div class="testimonial-author">Sandra R.</div>
-      <div class="testimonial-location">Cambridge, ON</div>
+    <div class="diff-card">
+      <div class="icon-circle">✦</div>
+      <h4>White-Glove Cleanliness</h4>
+      <p>Drywall is messy work. Your house shouldn't be. Every job ends with full site cleanup and dust removal — the home is left as clean as it was found.</p>
     </div>
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">Hired YM NXT PHASE for a full commercial office build-out including T-bar ceilings and all drywall. Everything was done with precision and speed. Will use again without hesitation.</p>
-      <div class="testimonial-author">David L.</div>
-      <div class="testimonial-location">Mississauga, ON</div>
+    <div class="diff-card">
+      <div class="icon-circle">◆</div>
+      <h4>Start-to-Finish Pro</h4>
+      <p>One contact from the first sheet of board to the final wipe-down. No subcontractors, no hand-offs, no finger-pointing.</p>
+    </div>
+    <div class="diff-card">
+      <div class="icon-circle">●</div>
+      <h4>Reliable &amp; On Time</h4>
+      <p>Shows up when promised. Clear communication from the quote through the final walk-through. No surprises.</p>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process">
-  <div class="section-label reveal">How It Works</div>
-  <h2 class="section-title reveal">Our Process</h2>
-  <div class="process-steps">
-    <div class="step reveal"><div class="step-num">01</div><div class="step-title">Free Estimate</div><p class="step-desc">We visit your site, assess the scope, and provide a detailed no-obligation quote within 24 hours.</p></div>
-    <div class="step reveal"><div class="step-num">02</div><div class="step-title">Schedule</div><p class="step-desc">We lock in a start date that works for your timeline and coordinate with your general contractor if needed.</p></div>
-    <div class="step reveal"><div class="step-num">03</div><div class="step-title">Execution</div><p class="step-desc">Our crew gets to work — clean, efficient, and professional. We protect your space and keep a tidy job site.</p></div>
-    <div class="step reveal"><div class="step-num">04</div><div class="step-title">Final Walkthrough</div><p class="step-desc">We inspect everything with you before we leave. Walls are smooth, joints are clean, and you're fully satisfied.</p></div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<div class="cta-band reveal">
-  <div class="cta-text">Ready to start your next phase? Let's build something great together.</div>
-  <a href="#contact" class="btn-dark">Get Your Free Quote</a>
+<!-- ═══ BANNER ═══ -->
+<div class="banner">
+  <p class="banner-text">
+    17 Years of Experience. <strong>Your walls, perfected</strong> from start to finish.
+  </p>
 </div>
 
-<!-- SERVICE AREA -->
-<section id="area">
-  <div class="section-label reveal">Where We Work</div>
-  <h2 class="section-title reveal">Service Area</h2>
-  <div class="area-grid">
-    <div class="reveal">
-      <iframe class="area-map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185552.34178039073!2d-80.56248!3d43.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882bf48c03ee5105%3A0x9525f8e6df5f544b!2sKitchener%2C%20ON!5e0!3m2!1sen!2sca!4v1699999999999!5m2!1sen!2sca">
-      </iframe>
-    </div>
-    <div class="area-list reveal">
-      <div class="area-item"><div class="area-item-icon">📍</div><div><div class="area-item-name">Kitchener-Waterloo</div><div class="area-item-detail">Primary service area — residential & commercial</div></div></div>
-      <div class="area-item"><div class="area-item-icon">📍</div><div><div class="area-item-name">Cambridge</div><div class="area-item-detail">Full services available throughout Cambridge</div></div></div>
-      <div class="area-item"><div class="area-item-icon">📍</div><div><div class="area-item-name">Greater Toronto Area</div><div class="area-item-detail">Mississauga, Brampton, Toronto & surrounding cities</div></div></div>
-      <div class="area-item"><div class="area-item-icon">📍</div><div><div class="area-item-name">Guelph & Region</div><div class="area-item-detail">Available for projects in Guelph and nearby areas</div></div></div>
-      <p style="font-size:0.84rem;color:var(--muted);margin-top:1rem;">Not sure if we cover your area? <a href="#contact" style="color:var(--accent);">Contact us</a> and we'll let you know.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
+<!-- ═══ CONTACT ═══ -->
 <section id="contact">
-  <div class="section-label reveal">Contact Us</div>
-  <h2 class="section-title reveal">Get In Touch</h2>
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <div class="contact-item"><div class="contact-icon">👷</div><div><div class="contact-detail-label">Owner</div><div class="contact-detail-val">Yainiel Montero</div></div></div>
-      <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-detail-label">Phone</div><div class="contact-detail-val"><a href="tel:5195033661">(519) 503-3661</a></div></div></div>
-      <div class="contact-item"><div class="contact-icon">💬</div><div><div class="contact-detail-label">WhatsApp</div><div class="contact-detail-val"><a href="https://wa.me/15195033661" target="_blank">(519) 503-3661</a></div></div></div>
-      <div class="contact-item"><div class="contact-icon">📧</div><div><div class="contact-detail-label">Email</div><div class="contact-detail-val"><a href="mailto:Yainielm@gmail.com">Yainielm@gmail.com</a></div></div></div>
-      <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-detail-label">Service Area</div><div class="contact-detail-val">Kitchener-Waterloo, Cambridge & GTA</div></div></div>
-      <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-detail-label">Hours</div><div class="contact-detail-val">Mon – Sat: 7:00 AM – 6:00 PM</div></div></div>
+  <div class="section-label mono">Get in touch</div>
+  <h2 class="section-title">
+    Let's get you a <em>free quote.</em>
+  </h2>
+
+  <div class="contact-wrap">
+    <div>
+      <div class="contact-methods">
+        <a href="tel:5195033661" class="contact-method">
+          <div class="left">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#f4efe6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="label">Call</div>
+              <div class="value">519-503-3661</div>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="sms:5195033661" class="contact-method">
+          <div class="left">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#f4efe6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="label">Text</div>
+              <div class="value">519-503-3661</div>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="mailto:Yainielm@gmail.com" class="contact-method">
+          <div class="left">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#f4efe6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="label">Email</div>
+              <div class="value" style="font-size:0.95rem; word-break:break-all;">Yainielm@gmail.com</div>
+            </div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <div class="contact-method" style="cursor:default;">
+          <div class="left">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#f4efe6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="label">Serving</div>
+              <div class="value" style="font-size:1rem;">Southern Ontario &amp; Beyond</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="reveal">
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
-        <div class="form-row">
-          <div class="form-field"><label>First Name</label><input type="text" name="first_name" placeholder="John" required/></div>
-          <div class="form-field"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith"/></div>
-        </div>
-        <div class="form-field"><label>Phone Number</label><input type="tel" name="phone" placeholder="(555) 000-0000" required/></div>
-        <div class="form-field"><label>Email</label><input type="email" name="email" placeholder="you@example.com"/></div>
-        <div class="form-field">
-          <label>Service Needed</label>
-          <select name="service" required>
-            <option value="">Select a service...</option>
-            <option>Steel & Wood Framing</option>
-            <option>Drywall Installation</option>
-            <option>Taping & Mudding</option>
-            <option>Patch Work & Repairs</option>
-            <option>Drop Ceilings & T-Bar</option>
-            <option>Popcorn Removal</option>
-            <option>California Ceilings</option>
-            <option>Texture & Spray Finishes</option>
-            <option>Insulation Installation</option>
-            <option>Soundproofing</option>
-            <option>Bulkheads & Soffits</option>
-            <option>Interior Painting</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-field"><label>Project Details</label><textarea name="message" placeholder="Describe your project — location, size, timeline, and any details..."></textarea></div>
-        <button type="submit" class="btn-primary" style="width:100%;padding:1rem;">Send Message</button>
-        <div class="form-success" id="formSuccess">✅ Message sent! Yainiel will be in touch within 24 hours.</div>
-      </form>
+
+    <div class="quote-form">
+      <h3>Request a <em>quote.</em></h3>
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="First &amp; last name" />
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="(___) ___-____" />
+      </div>
+      <div class="field">
+        <label for="service">Service Needed</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option>Full Space Drywalling</option>
+          <option>Ceiling Modernization (Popcorn Removal)</option>
+          <option>Precision Patch Work</option>
+          <option>Master Taping &amp; Primer</option>
+          <option>Not Sure — Need Advice</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="details">Project Details</label>
+        <textarea id="details" placeholder="Square footage, timeline, anything I should know..."></textarea>
+      </div>
+      <button type="button" id="sendQuote">Send Request &rarr;</button>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="footer-logo">YM <span>NXT PHASE</span> DRYWALL</div>
-  <p class="footer-copy">© 2026 YM NXT PHASE Drywall — Yainiel Montero. All rights reserved.</p>
-  <ul class="footer-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="brand">YM <span>/</span> NXT PHASE DRYWALL</div>
+  <div class="meta">
+    Reliable. Clean. Professional.<br>
+    <a href="tel:5195033661">519-503-3661</a> &middot; <a href="mailto:Yainielm@gmail.com">Yainielm@gmail.com</a><br>
+    <span style="font-size:0.7rem; color:var(--mud);">© <span id="year"></span> YM NXT PHASE Drywall. All rights reserved.</span>
+  </div>
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 75);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => obs.observe(el));
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Active nav
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : ''; });
+  // Quote form — opens email client with prefilled message
+  document.getElementById('sendQuote').addEventListener('click', function() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value.trim();
+    const details = document.getElementById('details').value.trim();
+
+    if (!name || !phone) {
+      alert('Please add your name and phone so I can reach you.');
+      return;
+    }
+
+    const subject = encodeURIComponent('Drywall Quote Request — ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Service: ' + (service || '(not specified)') + '\n\n' +
+      'Project Details:\n' + (details || '(none)')
+    );
+    window.location.href = 'mailto:Yainielm@gmail.com?subject=' + subject + '&body=' + body;
   });
-
-  // Contact form AJAX
-  const form = document.getElementById('contactForm');
-  const successMsg = document.getElementById('formSuccess');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.reset();
-          successMsg.style.display = 'block';
-          btn.textContent = 'Message Sent ✓';
-        } else {
-          btn.textContent = 'Error — Try Again';
-          btn.disabled = false;
-        }
-      } catch {
-        btn.textContent = 'Error — Try Again';
-        btn.disabled = false;
-      }
-    });
-  }
 </script>
+
 </body>
 </html>
